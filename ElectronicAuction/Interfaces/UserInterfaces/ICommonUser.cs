@@ -9,7 +9,7 @@ namespace ElectronicAuction.Interfaces.UserInterfaces
 {
     internal interface ICommonUser:IUser
     {
-        void CreateAuction();
-        void PlaceABet(IAuction Auction, IBid Bid);
+        public void CreateAuction();
+        public void PlaceABet(IAuction Auction, IBid Bid);
     }
 }

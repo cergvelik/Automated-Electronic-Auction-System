@@ -8,10 +8,10 @@ namespace ElectronicAuction.Interfaces.UserInterfaces
 {
     internal interface IUser
     {
-        int UserId { get; }
+        private int UserId { get; }
         string Name { get; }
         string Surname { get; }
-        string Email { get; }
-        string Password { get; }
+        private string Email { get; }
+        private string Password { get; }
     }
 }

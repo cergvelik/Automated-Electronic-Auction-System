@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cergvelik\\source\\repos\\ElectronicAuction\\ElectronicAuction\\ElectronicAuction.csproj": {}
+    "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cergvelik\\source\\repos\\ElectronicAuction\\ElectronicAuction\\ElectronicAuction.csproj": {
+    "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cergvelik\\source\\repos\\ElectronicAuction\\ElectronicAuction\\ElectronicAuction.csproj",
+        "projectUniqueName": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj",
         "projectName": "ElectronicAuction",
-        "projectPath": "C:\\Users\\cergvelik\\source\\repos\\ElectronicAuction\\ElectronicAuction\\ElectronicAuction.csproj",
+        "projectPath": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj",
         "packagesPath": "C:\\Users\\cergvelik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cergvelik\\source\\repos\\ElectronicAuction\\ElectronicAuction\\obj\\",
+        "outputPath": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cergvelik\\AppData\\Roaming\\NuGet\\NuGet.Config",

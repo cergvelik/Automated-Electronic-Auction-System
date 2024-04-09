@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ElectronicAuction",
+    "\\ElectronicAuction\\Classes",
+    "\\ElectronicAuction\\Classes\\UserClasses",
+    "\\ElectronicAuction\\Interfaces",
+    "\\ElectronicAuction\\Interfaces\\UserInterfaces"
   ],
-  "SelectedNode": "\\C:\\Users\\cergvelik\\Source\\Repos\\Automated-Electronic-Auction-System",
   "PreviewInSolutionExplorer": false
 }
