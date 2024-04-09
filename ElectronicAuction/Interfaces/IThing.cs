@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces
 {
-    internal interface IThing
+    public interface IThing
     {
         int ThingId { get; }
         string Title { get; }

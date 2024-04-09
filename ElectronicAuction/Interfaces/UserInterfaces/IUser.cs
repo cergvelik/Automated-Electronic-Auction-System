@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces.UserInterfaces
 {
-    internal interface IUser
+    public interface IUser
     {
-        private int UserId { get; }
+        int UserId { get; }
         string Name { get; }
         string Surname { get; }
-        private string Email { get; }
-        private string Password { get; }
+        string _Email { get; }
+        string _Password { get; } 
     }
 }

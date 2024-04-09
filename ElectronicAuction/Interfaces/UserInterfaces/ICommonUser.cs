@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces.UserInterfaces
 {
-    internal interface ICommonUser:IUser
+    public interface ICommonUser:IUser
     {
         public void CreateAuction();
         public void PlaceABet(IAuction Auction, IBid Bid);

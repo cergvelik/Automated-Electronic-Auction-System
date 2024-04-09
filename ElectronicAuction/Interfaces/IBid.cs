@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces
 {
-    internal interface IBid
+    public interface IBid
     {
         int BidId { get; }
         ICommonUser commonUser { get; }

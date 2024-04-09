@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces.AuctionInterfaces
 {
-    internal interface IAuctionWithBid:IAuction
+    public interface IAuctionWithBid:IAuction
     {
         List<IBid> Bids { get; }
     }

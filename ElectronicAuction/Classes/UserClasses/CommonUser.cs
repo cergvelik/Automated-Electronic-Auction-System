@@ -12,11 +12,11 @@ namespace ElectronicAuction.Classes.UserClasses
 {
 	class CommonUser:ICommonUser
 	{
-		int UserId { get; set; }
+		public int UserId { get; set; }
 		public string Name { get; set; }
 		public string Surname { get; set; }
-		private string Email { get; set; }
-		private string Password { get; set; }
+		public string _Email { get; set; }
+		public string _Password { get; set; }
 
 		public void CreateAuction() { }
 		public void PlaceABet(IAuction Auction, IBid Bid) { }

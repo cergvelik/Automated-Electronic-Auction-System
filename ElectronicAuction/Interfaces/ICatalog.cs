@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Interfaces
 {
-    internal interface ICatalog
+    public interface ICatalog
     {
         string Name { get; }
         List<IAuction> Auctions { get; }
