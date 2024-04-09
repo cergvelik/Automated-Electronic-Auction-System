@@ -11,7 +11,5 @@ namespace ElectronicAuction.Interfaces.UserInterfaces
         int UserId { get; }
         string Name { get; }
         string Surname { get; }
-        string _Email { get; }
-        string _Password { get; } 
     }
 }
