@@ -3,19 +3,29 @@ using ElectronicAuction;
 using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 using ElectronicAuction.Interfaces.AuctionInterfaces;
-using System;
+
 
 
 namespace ElectronicAuction.Classes.UserClasses
 {
 	public class CommonUser:ICommonUser
 	{
-		public int UserId { get; set; }
-		public string Name { get; set; }
-		public string Surname { get; set; }
+		private static int _id = 0;
+		public int UserId { get; }
+		public string Name { get; private set; }
+		public string Surname { get; private set; }
 
-		private string _Email { get; set; }
-		private string _Password { get; set; }
+		private string _email { get; set; }
+		private string _password { get; set; }
+
+		public CommonUser(string name, string surname, string email, string password)
+		{
+			UserId = ++_id;
+			Name = name;
+			Surname = surname;
+			_email = email;
+			_password = password;
+		}
 
 		public void CreateAuction() { }
 		public void PlaceABet(IAuction Auction, IBid Bid) { }

@@ -11,6 +11,7 @@ namespace ElectronicAuction.Interfaces
         int ThingId { get; }
         string Title { get; }
         string Description { get; }
-        int Price { get; }
+        decimal StartPrice { get; }
+        int SellerId { get; }
     }
 }

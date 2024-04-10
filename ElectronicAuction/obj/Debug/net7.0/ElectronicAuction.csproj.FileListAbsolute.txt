@@ -1,0 +1,14 @@
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.AssemblyInfoInputs.cache
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.AssemblyInfo.cs
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.csproj.CoreCompileInputs.cache
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\bin\Debug\net7.0\ElectronicAuction.exe
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\bin\Debug\net7.0\ElectronicAuction.deps.json
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\bin\Debug\net7.0\ElectronicAuction.runtimeconfig.json
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\bin\Debug\net7.0\ElectronicAuction.dll
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\bin\Debug\net7.0\ElectronicAuction.pdb
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.dll
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\refint\ElectronicAuction.dll
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.pdb
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ElectronicAuction.genruntimeconfig.cache
+C:\Users\cergvelik\source\repos\Automated-Electronic-Auction-System\ElectronicAuction\obj\Debug\net7.0\ref\ElectronicAuction.dll

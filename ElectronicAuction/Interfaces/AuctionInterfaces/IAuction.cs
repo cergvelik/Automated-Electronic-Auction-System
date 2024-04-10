@@ -9,7 +9,6 @@ namespace ElectronicAuction.Interfaces.AuctionInterfaces
     public interface IAuction
     {
         int AuctionId { get; }
-        IThing Thing { get; }
         DateTime StartDate { get; }
         DateTime EndDate { get; }
     }

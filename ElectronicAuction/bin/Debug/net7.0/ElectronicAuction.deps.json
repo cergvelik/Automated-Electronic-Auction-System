@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "ElectronicAuction/1.0.0": {
+        "runtime": {
+          "ElectronicAuction.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ElectronicAuction/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
