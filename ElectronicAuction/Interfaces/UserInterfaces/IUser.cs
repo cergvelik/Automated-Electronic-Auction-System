@@ -8,8 +8,7 @@ namespace ElectronicAuction.Interfaces.UserInterfaces
 {
     public interface IUser
     {
-        int UserId { get; }
+        int UserId { get; } 
         string Name { get; }
-        string Surname { get; }
     }
 }

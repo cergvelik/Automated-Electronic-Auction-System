@@ -11,5 +11,6 @@ namespace ElectronicAuction.Interfaces.AuctionInterfaces
         int AuctionId { get; }
         DateTime StartDate { get; }
         DateTime EndDate { get; }
+        List<IThing> Things { get; }
     }
 }

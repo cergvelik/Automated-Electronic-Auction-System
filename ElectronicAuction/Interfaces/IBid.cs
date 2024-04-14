@@ -10,7 +10,7 @@ namespace ElectronicAuction.Interfaces
     public interface IBid
     {
         int BidId { get; }
-        ICommonUser commonUser { get; }
+        int UserId { get; }
         decimal Amount { get; }
     }
 }
