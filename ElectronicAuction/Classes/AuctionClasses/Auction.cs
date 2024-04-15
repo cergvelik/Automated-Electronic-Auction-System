@@ -14,11 +14,11 @@ namespace ElectronicAuction.Classes.AuctionClasses
 
         public IUser AuctionCreator { get; }//Создатель аукциона 
 
-        public Auction(IUser Creator)//Все аукционы длятся 2 недели
+        protected Auction(IUser Creator, DateTime endDate )
         {
             AuctionId = ++_id;
             StartDate = DateTime.Now;
-            EndDate = DateTime.Now.AddDays(14);
+            EndDate = endDate;
             AuctionCreator = Creator;
         }
 
