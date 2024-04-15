@@ -14,10 +14,10 @@ namespace ElectronicAuction.Classes.AuctionClasses
 
         public IUser AuctionCreator { get; }//Создатель аукциона 
 
-        protected Auction(IUser Creator, DateTime endDate )
+        protected Auction(IUser Creator, DateTime startTime, DateTime endDate )
         {
             AuctionId = ++_id;
-            StartDate = DateTime.Now;
+            StartDate = startTime;
             EndDate = endDate;
             AuctionCreator = Creator;
         }
