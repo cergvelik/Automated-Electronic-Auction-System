@@ -2,7 +2,7 @@
 using ElectronicAuction.Interfaces.AuctionInterfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 
-namespace ElectronicAuction.Classes
+namespace ElectronicAuction.Classes.AuctionClasses
 {
     internal class AuctionCreator
     {
