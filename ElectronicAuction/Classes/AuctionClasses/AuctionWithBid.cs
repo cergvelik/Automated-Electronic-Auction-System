@@ -34,9 +34,23 @@ namespace ElectronicAuction.Classes.AuctionClasses
             Bids.Add(new Bid(Creator.UserId, FirstBid));
         }
 
+        private bool _isBidValid(decimal amount)
+        {
+            return amount < PossibleBid;
+        }
+        private bool _isAuctionClosed()
+        {
+            //черт его знает что тут должно быть
+            return true;
+        }
+        
         public void AddBid(IUser user, decimal amount)
         {
-            if (amount < PossibleBid) { } //добавить ошибку если ставка меньше возможной ставки и если аукцион завершен
+            if (_isBidValid(amount) & _isAuctionClosed()) 
+            {
+                //выводим сообщение: "ошибка!" 
+                return;
+            } 
             else
             {
                 Bids.Add(new Bid(user.UserId, amount));//иначе добавить ставку в аукцион
