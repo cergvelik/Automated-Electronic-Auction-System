@@ -21,6 +21,9 @@ namespace ElectronicAuction.Classes.AuctionClasses
             EndDate = endDate;
             AuctionCreator = Creator;
         }
+        protected bool _isAuctionClosed { get { if (DateTime.Now >= EndDate) return true; else return false; } }/*если сейчас время больше чем EndDate
+                                                                                                                 * то аукцион завершен. Преобразовал 
+                                                                                                                 * метод в свойство, потому-что так удобнее*/
 
     }
 }

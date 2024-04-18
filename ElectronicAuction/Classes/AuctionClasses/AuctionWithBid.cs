@@ -36,19 +36,14 @@ namespace ElectronicAuction.Classes.AuctionClasses
 
         private bool _isBidValid(decimal amount)
         {
-            return amount < PossibleBid;
-        }
-        private bool _isAuctionClosed()
-        {
-            //черт его знает что тут должно быть
-            return true;
+            return amount > PossibleBid;//если ставка больше предволагаемой ставки, то её можно размещать т.е. возвращаем true
         }
         
         public void AddBid(IUser user, decimal amount)
         {
-            if (_isBidValid(amount) & _isAuctionClosed()) 
+            if (!_isBidValid(amount) | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
             {
-                //выводим сообщение: "ошибка!" 
+                //ошибка
                 return;
             } 
             else
