@@ -4,11 +4,17 @@ using ElectronicAuction.Interfaces.UserInterfaces;
 
 namespace ElectronicAuction.Classes.AuctionClasses
 {
-    internal class AuctionCreator
+    internal class AuctionCreating
     {
         public IAuctionWithBid CreateAuctionWithBid(List<IThing> things, IUser user)//создатель аукциона со ставкой
         {
-            return null;
+            decimal FirstBid = 0m;
+            foreach (IThing price in things)
+            {
+                FirstBid += price.StartPrice;
+            }
+            AuctionWithBid auction = new AuctionWithBid(things, user, FirstBid);
+            return auction;
         }
     }
 }

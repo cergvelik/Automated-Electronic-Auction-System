@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicAuction.Interfaces.UserInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,6 @@ namespace ElectronicAuction.Interfaces.AuctionInterfaces
         DateTime StartDate { get; }
         DateTime EndDate { get; }
         List<IThing> Things { get; }
+        IUser AuctionCreator { get; }
     }
 }

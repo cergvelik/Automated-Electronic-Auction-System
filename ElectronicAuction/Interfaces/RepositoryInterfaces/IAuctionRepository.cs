@@ -11,5 +11,7 @@ namespace ElectronicAuction.Interfaces.RepositoryInterfaces
         GetAuction() и потом вернуть его с новой ставкой, этим будет заниматься класс AuctioService*/
 
         void AddAuction(IAuction auction);
+
+        List<IAuction> GetAllAuctions(); //получение всех аукционов
     }
 }

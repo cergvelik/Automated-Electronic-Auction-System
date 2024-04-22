@@ -11,5 +11,7 @@ namespace ElectronicAuction.Classes.RepositoryClasses
         public IUser GetUser(int id) { return null; } //получение пользователя по его id
 
         public void AddUser(IUser user) { } //добавление пользователя в словарь
+
+
     }
 }
