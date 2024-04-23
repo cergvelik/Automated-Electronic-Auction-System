@@ -1,10 +1,10 @@
 ﻿using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
-
+using ElectronicAuction.Classes.UserClasses;
 
 namespace ElectronicAuction.Classes.AuctionClasses
 {
-    abstract class Auction //пришлось все-таки использовать абстрактный класс чтобы создавать уникальный id аукциона
+    public abstract class Auction //пришлось все-таки использовать абстрактный класс чтобы создавать уникальный id аукциона
     {
         private static int _id = 10000;
         public int AuctionId { get; } //Уникальное Id аукциона

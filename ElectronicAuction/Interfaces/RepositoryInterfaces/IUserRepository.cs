@@ -1,4 +1,5 @@
 ﻿using ElectronicAuction.Interfaces.UserInterfaces;
+using ElectronicAuction.Classes.UserClasses;
 
 
 namespace ElectronicAuction.Interfaces.RepositoryInterfaces

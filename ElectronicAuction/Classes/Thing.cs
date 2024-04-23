@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ElectronicAuction.Classes
 {
-    internal class Thing
+    public class Thing
     {
         private static int _id = 0;
         public int ThingId { get; }// уникальное Id вещи

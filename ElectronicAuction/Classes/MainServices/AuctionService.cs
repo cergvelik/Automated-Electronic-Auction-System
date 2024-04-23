@@ -8,9 +8,9 @@ namespace ElectronicAuction.Classes.Services
 {
     public class AuctionService
     {
-        private readonly IBidService _bidService;
-        private readonly IAuctionCreationService _auctionCreationService;
-        private readonly IAuctionInfoService _auctionInfoService;
+        private readonly IBidService _bidService; //класс отвечающий за выставление ставки
+        private readonly IAuctionCreationService _auctionCreationService; //класс отвечающий за создание аукционов
+        private readonly IAuctionInfoService _auctionInfoService; //класс отвечающий за получение информации об аукционе
 
         public AuctionService(IBidService bidService, IAuctionCreationService auctionCreationService, IAuctionInfoService auctionInfoService)
         {

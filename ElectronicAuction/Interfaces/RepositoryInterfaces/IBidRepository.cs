@@ -1,4 +1,4 @@
-﻿
+﻿using ElectronicAuction.Classes;
 
 namespace ElectronicAuction.Interfaces.RepositoryInterfaces
 {

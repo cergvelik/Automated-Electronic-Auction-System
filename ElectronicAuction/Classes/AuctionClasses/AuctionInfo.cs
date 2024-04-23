@@ -7,7 +7,7 @@ namespace ElectronicAuction.Classes.AuctionClasses
     {
         string info { get; set; }
 
-        AuctionInfo(IAuctionWithBid auction)
+        public AuctionInfo(IAuctionWithBid auction)
         {
 
         }
