@@ -6,9 +6,11 @@ namespace ElectronicAuction.Classes.RepositoryClasses
 {
     public class AuctionRepositoryInSQL:IAuctionRepository
     {
+        private readonly string _connectionString;
+
         public AuctionRepositoryInSQL() { } //конструктор класса
 
-        public void AddAuctionWithBid(IAuction auction) { } //добавление аукциона со ставкой в базу данных
+        public void AddAuctionWithBid(IAuctionWithBid auction) { } //добавление аукциона со ставкой в базу данных
 
         public void ReturnAuctionWithBid(int id, IAuctionWithBid auction) { } //обновление аукциона со ставкой в базе
 

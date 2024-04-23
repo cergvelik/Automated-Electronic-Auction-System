@@ -7,6 +7,8 @@ namespace ElectronicAuction.Classes.RepositoryClasses
 {
     public class UserRepositoryInSQL:IUserRepository 
     {
+        private readonly string _connectionString;
+
         public UserRepositoryInSQL() { } //конструктор класса
 
         public IUser GetUser(int id) { return null; } //получение пользователя по его id
