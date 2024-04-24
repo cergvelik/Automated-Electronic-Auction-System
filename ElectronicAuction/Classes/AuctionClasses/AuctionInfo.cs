@@ -1,15 +1,26 @@
 ﻿using ElectronicAuction.Interfaces.AuctionInterfaces;
-
+using System.Text;
 
 namespace ElectronicAuction.Classes.AuctionClasses
 {
     public class AuctionInfo
     {
-        string info { get; set; }
+        private string _info { get; set; }
 
-        public AuctionInfo(IAuctionWithBid auction)
+        public AuctionInfo()
         {
+            _info = string.Empty;
+        }
 
+        public void GenerateReport(IAuctionReport reportGenerator, IAuctionWithBid auction)
+        {
+            _info = reportGenerator.GenerateReport(auction);
+        }
+
+        public override string ToString()
+        {
+            return _info;
         }
     }
+
 }

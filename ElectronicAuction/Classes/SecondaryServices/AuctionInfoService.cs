@@ -1,13 +1,15 @@
 ﻿using ElectronicAuction.Interfaces.ServicesInterfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ElectronicAuction.Classes.AuctionClasses;
+using ElectronicAuction.Interfaces.RepositoryInterfaces;
 
 namespace ElectronicAuction.Classes.SecondaryServices
 {
     public class AuctionInfoService:IAuctionInfoService //класс отвечающий за информацию о аукционе 
     {
+        private readonly IAuctionRepository _auctionRepository;
+
+        public AuctionInfo GetInfoAboutAuction(int id) { return null; } //получение информации об аукционе
+
+        public List<AuctionInfo> GetInfoAboutAllAuctions() { return null; } //получение информации о всех аукционах
     }
 }

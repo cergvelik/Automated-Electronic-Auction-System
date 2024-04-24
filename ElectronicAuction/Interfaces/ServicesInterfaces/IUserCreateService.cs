@@ -2,8 +2,8 @@
 
 namespace ElectronicAuction.Interfaces.ServicesInterfaces
 {
-    internal interface IUserCreateService
+    public interface IUserCreateService
     {
-        void CreateUser(IUser user) { }
+        void CreateUser(IUser user);
     }
 }
