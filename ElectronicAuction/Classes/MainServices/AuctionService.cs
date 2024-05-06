@@ -29,19 +29,16 @@ namespace ElectronicAuction.Classes.Services
             _auctionCreationService.CreateAuctionWithBid(userId, things);
         }
 
-        public void PrintInfoAboutAuction(int auctionId)
+        public AuctionInfo InfoAboutAuction(int auctionId)
         {
             AuctionInfo info =_auctionInfoService.GetInfoAboutAuction(auctionId);
-            Console.WriteLine(info);
+            return info;
         }
 
-        public void PrintInfoAboutAllAuctions()
+        public List<AuctionInfo> InfoAboutAllAuctions()
         {
             List<AuctionInfo> info = _auctionInfoService.GetInfoAboutAllAuctions();
-            foreach (var auctionInfo in info)
-            {
-                Console.WriteLine(auctionInfo.ToString());
-            }
+            return info;
         }
     }
 }

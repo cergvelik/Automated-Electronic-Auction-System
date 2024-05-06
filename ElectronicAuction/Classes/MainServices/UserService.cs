@@ -1,6 +1,7 @@
 ﻿using ElectronicAuction.Interfaces.Services;
 using ElectronicAuction.Interfaces.ServicesInterfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
+using ElectronicAuction.Classes.UserClasses;
 
 namespace ElectronicAuction.Classes.Services
 {
@@ -10,6 +11,8 @@ namespace ElectronicAuction.Classes.Services
 
         public UserService() { } //конструктор класса
 
-        void CreateNewUser(IUser user) { _userCreateService.CreateUser(user); }
+        public void CreateNewUser(string name, string email, string password) {
+            User user = new User(name, email, password);
+            _userCreateService.CreateUser(user); }
     }
 }
