@@ -126,6 +126,9 @@ namespace ElectronicAuction.Classes.Account
                 return; // или какая-то другая логика обработки ошибки
             };
 
+            Console.WriteLine("Введите вещи. После окончания ввода нажмите 0.");
+            string? password = Console.ReadLine();// Считывание информации с клавиатуры
+            
             List<IThing> things = null; // пока что
 
             // Проверка не введена ли пустая строка
