@@ -1,12 +1,5 @@
-/*using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;*/
 using ElectronicAuction.Classes.Account;
-using ElectronicAuction.Classes.Services;
-using ElectronicAuction.Interfaces.ServicesInterfaces;
-using System.Data.SqlClient;
+
 
 namespace ElectronicAuction
 {
