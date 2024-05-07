@@ -127,7 +127,7 @@ namespace ElectronicAuction.Classes.Account
             };
 
             Console.WriteLine("Введите вещи. После окончания ввода нажмите 0.");
-            string? password = Console.ReadLine();// Считывание информации с клавиатуры
+            string? thing = Console.ReadLine();// Считывание информации с клавиатуры
             
             List<IThing> things = null; // пока что
 
