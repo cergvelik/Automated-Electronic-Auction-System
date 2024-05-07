@@ -7,7 +7,7 @@ namespace ElectronicAuction.Classes.AuctionClasses
 {
     public class AuctionCreating
     {
-        public AuctionWithBid CreateAuctionWithBid(List<IThing> things, IUser user)//создатель аукциона со ставкой
+        public  static AuctionWithBid CreateAuctionWithBid(List<IThing> things, IUser user)//создатель аукциона со ставкой
         {
             decimal FirstBid = 0m;
             foreach (IThing price in things)

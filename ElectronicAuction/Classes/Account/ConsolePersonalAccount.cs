@@ -1,5 +1,5 @@
 using ElectronicAuction.Classes.AuctionClasses;
-using ElectronicAuction.Classes.Services;
+using ElectronicAuction.Classes.MainServices;
 using ElectronicAuction.Classes.UserClasses;
 using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
@@ -14,18 +14,6 @@ namespace ElectronicAuction.Classes.Account
         private AuctionService _auctionService;
         private UserService _userService;
 
-        public ConsolePersonalAccount() // тест - удалить
-        {
-            _user = null;
-            _auctionService = null;
-            _userService = null;
-        }
-        public ConsolePersonalAccount(AuctionService AuctionService) // тест - удалить
-        {
-            _user = null;
-            _auctionService = AuctionService;
-            _userService = null;
-        }
         public ConsolePersonalAccount(AuctionService AuctionService, UserService UserSercice)
         {
             _user = null;
@@ -33,7 +21,7 @@ namespace ElectronicAuction.Classes.Account
             _userService = UserSercice;
         }
 
-        public void InitializateAccount(string connectionString)
+        public void InitializateAccount()
         {
             Console.WriteLine("--------Аккаунт--------\n");
             Console.WriteLine("Чтобы вы хотели сделать? 1-Войти в существующий аккаунт, 2-Зарегистрироваться");
@@ -47,15 +35,15 @@ namespace ElectronicAuction.Classes.Account
             switch (input)
             {
                 case 1:
-                    AccountLogin(connectionString);
+                    AccountLogin();
                     break;
                 case 2:
-                    AccountRegistration(connectionString);
+                    AccountRegistration();
                     break;
             }
         }
 
-        public void AccountLogin(string connectionString)
+        public void AccountLogin()
         {
             Console.WriteLine("--------Вход--------\n");
             Console.WriteLine("Введите свой email: ");
@@ -65,10 +53,10 @@ namespace ElectronicAuction.Classes.Account
             // Проверка не введена ли пустая строка
 
             string Hash = PasswordEncrypt.Encrypt(password);
-            AccountMenu(connectionString);
+            AccountMenu();
         }
 
-        public void AccountRegistration(string connectionString)
+        public void AccountRegistration()
         {
             Console.WriteLine("--------Регистрация--------\n");
             Console.WriteLine("Введите своё имя: ");
@@ -83,10 +71,10 @@ namespace ElectronicAuction.Classes.Account
             string Hash = PasswordEncrypt.Encrypt(password);
 
             _userService.CreateNewUser(name, email, password);
-            AccountLogin(connectionString);
+            AccountLogin();
         }
 
-        public void AccountMenu(string connectionString)
+        public void AccountMenu()
         {
             Console.WriteLine("--------Меню--------\n");
             Console.WriteLine("Что бы вы хотели сделать? \n1-Создать аукцион, 2-Выставить ставку, \n3-Получить информацию о всех аукционах, 4-Получить информацию о конкретном аукционе");
@@ -101,21 +89,21 @@ namespace ElectronicAuction.Classes.Account
             switch (input)
             {
                 case 1:
-                    AuctionCreate(connectionString);
+                    AuctionCreate();
                     break;
                 case 2:
-                    PlaceBid(connectionString);
+                    PlaceBid();
                     break;
                 case 3:
-                    PrintInfoAboutAllAuctions(connectionString);
+                    PrintInfoAboutAllAuctions();
                     break;
                 case 4:
-                    PrintInfoAboutAuction(connectionString);
+                    PrintInfoAboutAuction();
                     break;
             }
         }
 
-        public void AuctionCreate(string connectionString)
+        public void AuctionCreate()
         {
             Console.WriteLine("--------Создание аукциона--------\n");
             Console.WriteLine("Что бы вы хотели сделать? 1-Создать аукцион со ставкой , 0-Выйти в меню");
@@ -138,12 +126,12 @@ namespace ElectronicAuction.Classes.Account
                     _auctionService.CreateAuctionWithBid(_user.UserId, things);
                     break;
                 case 0:
-                    AccountMenu(connectionString);
+                    AccountMenu();
                     break;
             }
         }
 
-        public void PlaceBid(string connectionString)
+        public void PlaceBid()
         {
             Console.WriteLine("--------Размещение ставки--------\n");
             Console.WriteLine("Чтобы вы хотели сделать? 1-Разместить ставку , 0-Выйти в меню");
@@ -176,86 +164,44 @@ namespace ElectronicAuction.Classes.Account
                     _auctionService.PlaceBid(_user.UserId, auctionId, sum);
                     break;
                 case 0:
-                    AccountMenu(connectionString);
+                    AccountMenu();
                     break;
             }
         }
 
-        public void PrintInfoAboutAllAuctions(string connectionString)
+        public void PrintInfoAboutAllAuctions()
         {
-            /*Console.WriteLine("Auctions:");
-            Console.WriteLine("AuctionId | UserId | ThingId | Title | Description | StartPrice");
-            Console.WriteLine("--------------------------------------------------------------");
-
-            List<AuctionInfo> auctions = _auctionService.InfoAboutAllAuctions();
-            foreach (var auction in auctions)
-            {
-                Console.WriteLine($"{auction.AuctionId,-10} | {auction.UserId,-7} | {auction.ThingId,-8} | {auction.Title,-20} | {auction.Description,-30} | {auction.StartPrice}");
-            }*/
-            
-            
-            /*Console.WriteLine("--------Информация о всех аукционах--------\n");
+            Console.WriteLine("--------Информация о всех аукционах--------\n");
             List<AuctionInfo> info = _auctionService.InfoAboutAllAuctions();
             foreach (AuctionInfo auctionInfo in info)
             {
                 Console.WriteLine(auctionInfo.ToString());
-            }*/
-
-
-            // //
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = "SELECT a.AuctionId, a.UserId, t.ThingId, t.Title, t.Description, t.StartPrice " +
-                               "FROM Auctions a " +
-                               "INNER JOIN Things t ON a.AuctionId = t.AuctionId";
-
-                SqlCommand command = new SqlCommand(query, connection);
-
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                Console.WriteLine("Аукционы:\n");
-                Console.WriteLine($"{"auctionId",-10} | {"userId",-7} | {"thingId",-8} | {"название",-20} | {"описание",-40} | {"начальная цена"}");
-                Console.WriteLine("-------------------------------------------------------------------------------------------------");
-
-                while (reader.Read())
-                {
-                    int auctionId = reader.GetInt32(0);
-                    int userId = reader.GetInt32(1);
-                    int thingId = reader.GetInt32(2);
-                    string title = reader.GetString(3);
-                    string description = reader.GetString(4);
-                    decimal startPrice = reader.GetDecimal(5);
-
-                    Console.WriteLine($"{auctionId,-10} | {userId,-7} | {thingId,-8} | {title,-20} | {description,-40} | {startPrice}");
-                }
-                Console.WriteLine("\n\n");
-                reader.Close();
             }
         }
-            public void PrintInfoAboutAuction(string connectionString)
+
+        public void PrintInfoAboutAuction()
+        {
+            Console.WriteLine("--------Информация о аукционе--------\n");
+            Console.WriteLine("Чтобы вы хотели сделать? 1-Узнать информацию о аукционе , 0-Выйти в меню");
+            int input;
+            if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
             {
-                Console.WriteLine("--------Информация о аукционе--------\n");
-                Console.WriteLine("Чтобы вы хотели сделать? 1-Узнать информацию о аукционе , 0-Выйти в меню");
-                int input;
-                if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
-                {
-                    Console.WriteLine("Ошибка ввода.");
-                    return; // или какая-то другая логика обработки ошибки
-                };
-                // Проверка не введена ли пустая строка
-                switch (input)
-                {
-                    case 1:
-                        Console.WriteLine("Введите номер аукциона: ");
-                        int number = Console.Read();// Считывание информации с клавиатуры
+                Console.WriteLine("Ошибка ввода.");
+                return; // или какая-то другая логика обработки ошибки
+            };
+            // Проверка не введена ли пустая строка
+            switch (input)
+            {
+                case 1:
+                    Console.WriteLine("Введите номер аукциона: ");
+                    int number = Console.Read();// Считывание информации с клавиатуры
                                                     // Проверка не введена ли пустая строка
-                        AuctionInfo info = _auctionService.InfoAboutAuction(connectionString, number);
-                        Console.WriteLine(info.ToString());
-                        break;
-                    case 0:
-                        AccountMenu(connectionString);
-                        break;
+                    AuctionInfo info = _auctionService.InfoAboutAuction(number);
+                    Console.WriteLine(info.ToString());
+                    break;
+                case 0:
+                    AccountMenu();
+                    break;
                 }
             }
         }

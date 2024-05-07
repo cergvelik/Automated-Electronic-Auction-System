@@ -8,7 +8,7 @@ namespace ElectronicAuction.Classes.RepositoryClasses
     {
         private readonly string _connectionString;
 
-        public BidRepositoryInSQL() { } //конструктор класса
+        public BidRepositoryInSQL(string connection) { _connectionString = connection; } //конструктор класса
 
         public IBid GetBid(int id) { return null; } //метод получения ставки по id
 

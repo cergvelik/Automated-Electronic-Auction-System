@@ -27,7 +27,7 @@ namespace ElectronicAuction.Classes.SecondaryServices
         public void CreateAuctionWithBid(int userId, List<IThing> things)
         {
             var User = _userRepository.GetUser(userId); //достаем пользователя
-            var Auction = _createAuction.CreateAuctionWithBid(things, User); //создаем объект аукциона
+            var Auction = AuctionCreating.CreateAuctionWithBid(things, User); //создаем объект аукциона
             _auctionRepository.AddAuctionWithBid(Auction);
             _bidRepository.AddBid(Auction.Bids[0]);
             foreach (var thing in things)

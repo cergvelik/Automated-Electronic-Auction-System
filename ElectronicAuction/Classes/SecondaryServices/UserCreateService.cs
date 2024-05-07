@@ -1,10 +1,11 @@
 ﻿
 using ElectronicAuction.Interfaces.RepositoryInterfaces;
+using ElectronicAuction.Interfaces.ServicesInterfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 
 namespace ElectronicAuction.Classes.SecondaryServices
 {
-    public class UserCreateService
+    public class UserCreateService:IUserCreateService
     {
         private readonly IUserRepository _userRepository;
 
@@ -13,6 +14,6 @@ namespace ElectronicAuction.Classes.SecondaryServices
             _userRepository = userRepository;
         }
 
-        void CreateUser(IUser user) { }
+        public void CreateUser(IUser user) { }
     }
 }

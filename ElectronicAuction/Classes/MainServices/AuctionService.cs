@@ -4,7 +4,7 @@ using ElectronicAuction.Classes.AuctionClasses;
 using ElectronicAuction.Interfaces.Services;
 using ElectronicAuction.Interfaces.ServicesInterfaces;
 
-namespace ElectronicAuction.Classes.Services
+namespace ElectronicAuction.Classes.MainServices
 {
     public class AuctionService
     {

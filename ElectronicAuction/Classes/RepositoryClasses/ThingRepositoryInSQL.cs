@@ -7,7 +7,7 @@ namespace ElectronicAuction.Classes.RepositoryClasses
     {
         private readonly string _connectionString;
 
-        public ThingRepositoryInSQL() { } //конструктор класса
+        public ThingRepositoryInSQL(string connection) { _connectionString = connection; } //конструктор класса
 
         public IThing GetThing(int ThingId) { return null; }
 
