@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ElectronicAuction.Interfaces;
 
 namespace ElectronicAuction.Classes
 {
-    public class Thing
+    public class Thing:IThing
     {
         private static int _id = 0;
         public int ThingId { get; }// уникальное Id вещи

@@ -6,6 +6,6 @@ namespace ElectronicAuction.Interfaces.RepositoryInterfaces
     {
         IBid GetBid(int BidId);
 
-        void AddBid(IBid bid);
+        void AddBid(IBid bid, int auctionId);
     }
 }

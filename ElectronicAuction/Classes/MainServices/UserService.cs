@@ -8,11 +8,20 @@ namespace ElectronicAuction.Classes.MainServices
     public class UserService
     {
         private readonly IUserCreateService _userCreateService;//класс отвечающий за создание и добавление пользователя в базу данных
+        private readonly IUserLoginService _userLoginService;//класс отвечающий за логин
 
-        public UserService(IUserCreateService userCreateService) { _userCreateService = userCreateService; } //конструктор класса
+        public UserService(IUserCreateService userCreateService, IUserLoginService userLoginService) { 
+            _userCreateService = userCreateService; 
+            _userLoginService = userLoginService; 
+        } //конструктор класса
 
         public void CreateNewUser(string name, string email, string password) {
             User user = new User(name, email, password);
-            _userCreateService.CreateUser(user); }
+            _userCreateService.CreateUser(user); 
+        }        
+        
+        public IUser LoginUser(string email, string password) {
+            return _userLoginService.LoginUser(email, password); 
+        }
     }
 }

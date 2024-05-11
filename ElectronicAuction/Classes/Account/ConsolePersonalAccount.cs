@@ -4,6 +4,7 @@ using ElectronicAuction.Classes.UserClasses;
 using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 using System.Data.SqlClient;
+using System.Security.Principal;
 
 
 namespace ElectronicAuction.Classes.Account
@@ -52,7 +53,10 @@ namespace ElectronicAuction.Classes.Account
             string? password = Console.ReadLine();// Считывание информации с клавиатуры
             // Проверка не введена ли пустая строка
 
-            string Hash = PasswordEncrypt.Encrypt(password);
+            _user = _userService.LoginUser(email, password); // логин
+            Console.WriteLine($"Добро пожаловать, {_user.Name}!");
+            //string Hash = PasswordEncrypt.Encrypt(password);
+
             AccountMenu();
         }
 
@@ -114,15 +118,43 @@ namespace ElectronicAuction.Classes.Account
                 return; // или какая-то другая логика обработки ошибки
             };
 
-            Console.WriteLine("Введите вещи. После окончания ввода нажмите 0.");
-            string? thing = Console.ReadLine();// Считывание информации с клавиатуры
-            
-            List<IThing> things = null; // пока что
+            List<IThing> things = new List<IThing>(); // пока что
 
             // Проверка не введена ли пустая строка
             switch (input)
             {
                 case 1:
+                    while (true)
+                    {
+                        Console.WriteLine("Введите название вещи:");
+                        string title = Console.ReadLine();
+
+                        Console.WriteLine("Введите описание вещи:");
+                        string description = Console.ReadLine();
+
+                        Console.WriteLine("Введите стартовую цену вещи:");
+                        if (!decimal.TryParse(Console.ReadLine(), out decimal startPrice))
+                        {
+                            Console.WriteLine("Некорректный формат стартовой цены. Пожалуйста, введите число.");
+                            continue;
+                        }
+
+                        IThing newThing = new Thing(title, description, startPrice);
+                        things.Add(newThing);
+
+                        Console.WriteLine("Вещь успешно добавлена!");
+
+                        Console.WriteLine("Хотите добавить еще одну вещь? (y/n)");
+                        string answer = Console.ReadLine().ToLower();
+                        if (answer != "y")
+                            break;
+                    }
+                    /*
+                    Console.WriteLine("Список вещей:");
+                    foreach (var thing in things)
+                    {
+                        Console.WriteLine($"ID: {thing.ThingId}, Название: {thing.Title}, Описание: {thing.Description}, Стартовая цена: {thing.StartPrice}");
+                    }*/
                     _auctionService.CreateAuctionWithBid(_user.UserId, things);
                     break;
                 case 0:

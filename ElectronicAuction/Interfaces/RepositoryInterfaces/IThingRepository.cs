@@ -6,7 +6,7 @@ namespace ElectronicAuction.Interfaces.RepositoryInterfaces
     {
         IThing GetThing(int ThingId);
 
-        void AddThing(IThing thing);  
+        void AddThing(IThing thing, int auctionId);  
 
     }
 }

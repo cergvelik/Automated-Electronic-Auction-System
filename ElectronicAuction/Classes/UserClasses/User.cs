@@ -8,7 +8,7 @@ namespace ElectronicAuction.Classes.UserClasses
         private static int _id = 1000;
 
         public string Name { get; } //никнейм пользователя
-        public int UserId { get; }//уникальное Id пользователя
+        public int UserId { get; } //уникальное Id пользователя
 
         private string _email { get; set; }
         private string _password { get; set; }
@@ -19,6 +19,24 @@ namespace ElectronicAuction.Classes.UserClasses
             Name = name;
             _email = email;
             _password = password;
+        }        
+        
+        public User(int id, string name, string email, string password)
+        {
+            UserId = id;
+            Name = name;
+            _email = email;
+            _password = password;
+        }
+
+        public string GetEmail()
+        {
+            return _email;
+        }
+
+        public string GetPassword()
+        {
+            return _password;
         }
 
     }

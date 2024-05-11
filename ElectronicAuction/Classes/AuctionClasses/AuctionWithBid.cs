@@ -20,6 +20,13 @@ namespace ElectronicAuction.Classes.AuctionClasses
             }
         } //Возможная ставка (должна превышать последнюю ставку на 5%)
 
+        public AuctionWithBid(int id, List<IThing> things, IUser Creator, IBid FirstBid) : base(id, Creator, DateTime.Now, DateTime.Now.AddDays(14)) //Когда создается аукцион в лист ставок добавляется первая ставка-стартовая стоимость всех вещей
+        //аукцион со ставкой длится 14 дней, создается в момент когда вы его создаете
+        {
+            Things = things;
+            Bids = new List<IBid>();
+            Bids.Add(FirstBid);
+        }  
         public AuctionWithBid(List<IThing> things, IUser Creator, IBid FirstBid) : base(Creator, DateTime.Now, DateTime.Now.AddDays(14)) //Когда создается аукцион в лист ставок добавляется первая ставка-стартовая стоимость всех вещей
         //аукцион со ставкой длится 14 дней, создается в момент когда вы его создаете
         {

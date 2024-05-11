@@ -11,6 +11,10 @@ namespace ElectronicAuction.Classes
         public int UserId { get; } //Id Пользователя ставки
         public decimal Amount { get; private set; } //величина ставки
 
-        public Bid( int userId, decimal amount) { BidId = ++_id; UserId = userId; Amount = amount; }
+        public Bid( int userId, decimal amount) { 
+            BidId = ++_id; 
+            UserId = userId; 
+            Amount = amount; 
+        }
     }
 }

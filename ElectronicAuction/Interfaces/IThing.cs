@@ -12,5 +12,7 @@ namespace ElectronicAuction.Interfaces
         string Title { get; }
         string Description { get; }
         decimal StartPrice { get; }
+
+
     }
 }
