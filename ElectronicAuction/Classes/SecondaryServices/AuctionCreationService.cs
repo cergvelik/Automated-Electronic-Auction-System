@@ -2,6 +2,8 @@
 using ElectronicAuction.Interfaces.RepositoryInterfaces;
 using ElectronicAuction.Interfaces.Services;
 using ElectronicAuction.Classes.AuctionClasses;
+using ElectronicAuction.Interfaces.UserInterfaces;
+using System.Xml.Linq;
 
 namespace ElectronicAuction.Classes.SecondaryServices
 {
@@ -22,17 +24,24 @@ namespace ElectronicAuction.Classes.SecondaryServices
             _auctionRepository = auctionRepository;
             _bidRepository = bidRepository;
             _thingRepository = thingRepository;
+        }        
+        public AuctionCreationService(IAuctionRepository auctionRepository, IBidRepository bidRepository, IThingRepository thingRepository, IUserRepository userRepository)//конструткор класса
+        {
+            _auctionRepository = auctionRepository;
+            _bidRepository = bidRepository;
+            _thingRepository = thingRepository;
+            _userRepository = userRepository;
         }
 
         public void CreateAuctionWithBid(int userId, List<IThing> things)
         {
-            var User = _userRepository.GetUser(userId); //достаем пользователя
-            var Auction = AuctionCreating.CreateAuctionWithBid(things, User); //создаем объект аукциона
-            _auctionRepository.AddAuctionWithBid(Auction);
-            _bidRepository.AddBid(Auction.Bids[0]);
+            IUser? _user = _userRepository.GetUser(userId); //достаем пользователя
+            var _auction = AuctionCreating.CreateAuctionWithBid(things, _user); //создаем объект аукциона
+            _auctionRepository.AddAuctionWithBid(_auction); // добавление аукциона в базу данных
+            _bidRepository.AddBid(_auction.Bids[0], _auction.AuctionId); // добавление ставки
             foreach (var thing in things)
             {
-                _thingRepository.AddThing(thing);
+                _thingRepository.AddThing(thing, _auction.AuctionId); // добавление каждой вещи в БД
             }
         }
     }

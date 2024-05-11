@@ -9,6 +9,7 @@ namespace ElectronicAuction.Interfaces.RepositoryInterfaces
         IUser GetUser(int id);
 
         void AddUser(IUser user);
+        IUser LoginUser(string email, string password);
 
         List<IUser> GetAllUsers();
     }

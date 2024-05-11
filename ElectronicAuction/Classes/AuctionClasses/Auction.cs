@@ -20,6 +20,13 @@ namespace ElectronicAuction.Classes.AuctionClasses
             StartDate = startTime;
             EndDate = endDate;
             AuctionCreator = Creator;
+        }        
+        protected Auction(int id, IUser Creator, DateTime startTime, DateTime endDate )
+        {
+            AuctionId = id;
+            StartDate = startTime;
+            EndDate = endDate;
+            AuctionCreator = Creator;
         }
         protected bool _isAuctionClosed { get { if (DateTime.Now >= EndDate) return true; else return false; } }/*если сейчас время больше чем EndDate
                                                                                                                  * то аукцион завершен. Преобразовал 

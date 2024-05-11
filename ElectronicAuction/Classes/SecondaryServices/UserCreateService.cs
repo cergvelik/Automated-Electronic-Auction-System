@@ -14,6 +14,8 @@ namespace ElectronicAuction.Classes.SecondaryServices
             _userRepository = userRepository;
         }
 
-        public void CreateUser(IUser user) { }
+        public void CreateUser(IUser user) {
+            _userRepository.AddUser(user);
+        }
     }
 }

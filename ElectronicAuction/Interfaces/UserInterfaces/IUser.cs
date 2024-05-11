@@ -10,5 +10,15 @@ namespace ElectronicAuction.Interfaces.UserInterfaces
     {
         int UserId { get; } 
         string Name { get; }
+
+        public string GetEmail()
+        {
+            return null;
+        }
+
+        public string GetPassword()
+        {
+            return null;
+        }
     }
 }

@@ -13,13 +13,14 @@ namespace ElectronicAuction.Classes.Account
             ThingRepositoryInSQL thingRepository = new ThingRepositoryInSQL(connection);
             UserRepositoryInSQL userRepository = new UserRepositoryInSQL(connection);
 
-            AuctionCreationService auctionCreationService = new AuctionCreationService(auctionRepository, bidRepository, thingRepository);
+            AuctionCreationService auctionCreationService = new AuctionCreationService(auctionRepository, bidRepository, thingRepository, userRepository);
             AuctionInfoService auctionInfoService = new AuctionInfoService(auctionRepository);
             BidService bidService = new BidService(bidRepository, auctionRepository, userRepository);
             UserCreateService userCreateService = new UserCreateService(userRepository);
+            UserLoginService userLoginService = new UserLoginService(userRepository);
 
             AuctionService auctionService = new AuctionService(bidService, auctionCreationService, auctionInfoService);
-            UserService userService = new UserService(userCreateService);
+            UserService userService = new UserService(userCreateService, userLoginService);
 
             ConsolePersonalAccount account = new ConsolePersonalAccount(auctionService, userService);
 

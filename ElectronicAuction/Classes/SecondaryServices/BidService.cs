@@ -26,7 +26,7 @@ namespace ElectronicAuction.Classes.SecondaryServices
             var User = _userRepository.GetUser(userId); //достаем пользователя
             Bid NewBid = new Bid(User.UserId, bid);
             Auction.AddBid(NewBid); //добавляем к аукциону ставку
-            _bidRepository.AddBid(NewBid); //добавляем в базу данных ставку
+            _bidRepository.AddBid(NewBid, auctionId); //добавляем в базу данных ставку
             _auctionRepository.ReturnAuctionWithBid(auctionId, Auction); //возвращаем измененный аукцион в базу данных
         }
     }

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj": {}
+    "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj": {
+    "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj",
+        "projectUniqueName": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj",
         "projectName": "ElectronicAuction",
-        "projectPath": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\ElectronicAuction.csproj",
-        "packagesPath": "C:\\Users\\cergvelik\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cergvelik\\source\\repos\\Automated-Electronic-Auction-System\\ElectronicAuction\\obj\\",
+        "projectPath": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj",
+        "packagesPath": "C:\\Users\\wendi\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\cergvelik\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wendi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +38,22 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -55,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
