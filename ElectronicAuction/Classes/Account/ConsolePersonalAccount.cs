@@ -52,10 +52,10 @@ namespace ElectronicAuction.Classes.Account
             Console.WriteLine("Введите свой пароль: ");
             string? password = Console.ReadLine();// Считывание информации с клавиатуры
             // Проверка не введена ли пустая строка
-
-            _user = _userService.LoginUser(email, password); // логин
+            string Hash = PasswordEncrypt.Encrypt(password);
+            
+            _user = _userService.LoginUser(email, Hash); // логин
             Console.WriteLine($"Добро пожаловать, {_user.Name}!");
-            //string Hash = PasswordEncrypt.Encrypt(password);
 
             AccountMenu();
         }
@@ -71,10 +71,9 @@ namespace ElectronicAuction.Classes.Account
             //тут ввод данных понятно дело
             string? password = Console.ReadLine();// Считывание информации с клавиатуры
             // Проверка не введена ли пустая строка
-
             string Hash = PasswordEncrypt.Encrypt(password);
 
-            _userService.CreateNewUser(name, email, password);
+            _userService.CreateNewUser(name, email, Hash);
             AccountLogin();
         }
 
