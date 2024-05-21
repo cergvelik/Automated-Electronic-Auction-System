@@ -5,7 +5,7 @@ namespace ElectronicAuction.Interfaces.RepositoryInterfaces
 {
     public interface IAuctionWithBidRepository
     {
-        void AddAuctionWithBid(IAuctionWithBid auction);
+        int AddAuctionWithBid(IAuctionWithBid auction);
 
         IAuctionWithBid GetAuctionWithBid(int id); //получение аукциона со ставкой по id
 

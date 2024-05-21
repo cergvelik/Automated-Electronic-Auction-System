@@ -6,12 +6,9 @@ using System.Data.SqlClient;
 
 namespace ElectronicAuction.Classes.RepositoryClasses
 {
-    public class BidRepositoryInSQL:IBidRepository
+    public class BidRepositoryInSQL: RepositoryInSQL, IBidRepository
     {
-        private readonly string _connectionString;
-
-        public BidRepositoryInSQL(string connection) { _connectionString = connection; } //конструктор класса
-
+        public BidRepositoryInSQL(string connectionString) : base(connectionString) { } //конструктор класса
         public IBid GetBid(int id) { return null; } //метод получения ставки по id
 
         public void AddBid(IBid bid, int auctionId) {
@@ -34,7 +31,6 @@ namespace ElectronicAuction.Classes.RepositoryClasses
                     {
                         // Выполнение команды (вставка пользователя в базу данных)
                         command.ExecuteNonQuery();
-                        Console.WriteLine($"Ставка успешно добавлена.");
                     }
                     catch (SqlException ex)
                     {

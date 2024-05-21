@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "da9VUbtWmK1SgykQewMP75z5B+wXhQcynb4YNmr/eOmVjbn1mX3ohOQuH0ZhMhi0S9TgsGslHdYoL4EVqru32A==",
+  "dgSpecHash": "8BX9OmFxI/3qzjgnuP3B02oC5RDzm3fu8PBBGjnAd9A3UqtvWwJj3229p9o2rRI69QfUUKsUJw6qbqLd4svHZA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj",
+  "projectFilePath": "C:\\dev\\csharp\\krs\\ElectronicAuction\\ElectronicAuction.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wendi\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\wendi\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

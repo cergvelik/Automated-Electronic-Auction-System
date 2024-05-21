@@ -19,6 +19,14 @@ namespace ElectronicAuction.Classes.UserClasses
             Name = name;
             _email = email;
             _password = password;
+        }           
+        
+        public User(int id, string name)
+        {
+            UserId = id;
+            Name = name;
+            _email = null;
+            _password = null;
         }        
         
         public User(int id, string name, string email, string password)

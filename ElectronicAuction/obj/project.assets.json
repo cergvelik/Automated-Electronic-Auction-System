@@ -476,11 +476,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj",
+      "projectUniqueName": "C:\\dev\\csharp\\krs\\ElectronicAuction\\ElectronicAuction.csproj",
       "projectName": "ElectronicAuction",
-      "projectPath": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\ElectronicAuction.csproj",
+      "projectPath": "C:\\dev\\csharp\\krs\\ElectronicAuction\\ElectronicAuction.csproj",
       "packagesPath": "C:\\Users\\wendi\\.nuget\\packages\\",
-      "outputPath": "C:\\dev\\csharp\\krs — копия\\ElectronicAuction\\obj\\",
+      "outputPath": "C:\\dev\\csharp\\krs\\ElectronicAuction\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

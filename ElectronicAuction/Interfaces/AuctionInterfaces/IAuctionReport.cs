@@ -2,6 +2,6 @@
 {
     public interface IAuctionReport
     {
-        string GenerateReport(IAuctionWithBid auction);
+        //static public string GenerateReport(IAuctionWithBid auction);
     }
 }

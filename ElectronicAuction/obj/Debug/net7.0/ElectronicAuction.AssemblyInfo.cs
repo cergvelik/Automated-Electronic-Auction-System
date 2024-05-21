@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("ElectronicAuctionTests")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElectronicAuction")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a558126315b19f17d30e416f20f431158907011")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b15b221ae7342b3351d34c1c50026d6a5a648948")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElectronicAuction")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElectronicAuction")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

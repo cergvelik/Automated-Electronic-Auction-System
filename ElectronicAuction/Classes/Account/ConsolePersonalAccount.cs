@@ -46,34 +46,89 @@ namespace ElectronicAuction.Classes.Account
 
         public void AccountLogin()
         {
-            Console.WriteLine("--------Вход--------\n");
-            Console.WriteLine("Введите свой email: ");
-            string? email = Console.ReadLine();// Считывание информации с клавиатуры
-            Console.WriteLine("Введите свой пароль: ");
-            string? password = Console.ReadLine();// Считывание информации с клавиатуры
-            // Проверка не введена ли пустая строка
-            string Hash = PasswordEncrypt.Encrypt(password);
-            
-            _user = _userService.LoginUser(email, Hash); // логин
-            Console.WriteLine($"Добро пожаловать, {_user.Name}!");
+            bool loginSuccess = false; // метка успешного входа в систему
 
-            AccountMenu();
-        }
+            do
+            {
+                Console.WriteLine("--------Вход--------\n");
+                Console.WriteLine("Введите свой email: ");
+                string? email = Console.ReadLine();// Считывание информации с клавиатуры
+                Console.WriteLine("Введите свой пароль: ");
+                string? password = Console.ReadLine();// Считывание информации с клавиатуры
+
+                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                {
+                    Console.WriteLine("Ошибка: Пожалуйста, введите корректный email и пароль.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                // Проверка корректности email
+                if (!EmailValidator.IsValidEmail(email))
+                {
+                    Console.WriteLine("Ошибка: Введенный email не корректен.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                string Hash = PasswordEncrypt.Encrypt(password);
+                _user = _userService.LoginUser(email, Hash); // логин
+
+                if (_user == null)
+                {
+                    Console.WriteLine("Ошибка: Неверный email или пароль.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                Console.WriteLine($"Добро пожаловать, {_user.Name}!");
+                AccountMenu();
+
+                // Если пользователь успешно вошел, устанавливаем флаг успеха и выходим из цикла
+                loginSuccess = true;
+            } while (!loginSuccess);
+        } // вход в аккаунт - логин
 
         public void AccountRegistration()
         {
-            Console.WriteLine("--------Регистрация--------\n");
-            Console.WriteLine("Введите своё имя: ");
-            string? name = Console.ReadLine();// Считывание информации с клавиатуры
-            Console.WriteLine("Введите email: ");
-            string? email = Console.ReadLine();// Считывание информации с клавиатуры
-            Console.WriteLine("Введите пароль: ");
-            //тут ввод данных понятно дело
-            string? password = Console.ReadLine();// Считывание информации с клавиатуры
-            // Проверка не введена ли пустая строка
-            string Hash = PasswordEncrypt.Encrypt(password);
+            bool registrationSuccess = false; // метка успешной регистрации
 
-            _userService.CreateNewUser(name, email, Hash);
+            do
+            {
+                Console.WriteLine("--------Регистрация--------\n");
+                Console.WriteLine("Введите своё имя: ");
+                string? name = Console.ReadLine();// Считывание информации с клавиатуры
+
+                if (string.IsNullOrEmpty(name))
+                {
+                    Console.WriteLine("Ошибка: Пожалуйста, введите корректное имя.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                Console.WriteLine("Введите email: ");
+                string? email = Console.ReadLine();// Считывание информации с клавиатуры
+
+                // Проверка корректности email
+                if (!EmailValidator.IsValidEmail(email))
+                {
+                    Console.WriteLine("Ошибка: Введенный email не корректен.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                Console.WriteLine("Введите пароль: ");
+                string? password = Console.ReadLine();// Считывание информации с клавиатуры
+
+                if (string.IsNullOrEmpty(password))
+                {
+                    Console.WriteLine("Ошибка: Пожалуйста, введите корректный пароль.");
+                    continue; // Продолжить цикл, запрашивая ввод снова
+                }
+
+                string Hash = PasswordEncrypt.Encrypt(password);
+                _userService.CreateNewUser(name, email, Hash);
+
+                // Если пользователь успешно зарегистрировался, устанавливаем флаг успеха и выходим из цикла
+                registrationSuccess = true;
+            } while (!registrationSuccess);
+
+            // После успешной регистрации переходим ко входу в аккаунт
             AccountLogin();
         }
 
@@ -148,13 +203,9 @@ namespace ElectronicAuction.Classes.Account
                         if (answer != "y")
                             break;
                     }
-                    /*
-                    Console.WriteLine("Список вещей:");
-                    foreach (var thing in things)
-                    {
-                        Console.WriteLine($"ID: {thing.ThingId}, Название: {thing.Title}, Описание: {thing.Description}, Стартовая цена: {thing.StartPrice}");
-                    }*/
                     _auctionService.CreateAuctionWithBid(_user.UserId, things);
+                    Console.WriteLine("Аукцион успешно создан.");
+                    AccountMenu();
                     break;
                 case 0:
                     AccountMenu();
@@ -185,7 +236,7 @@ namespace ElectronicAuction.Classes.Account
                         return; // или какая-то другая логика обработки ошибки
                     }
 
-                    Console.WriteLine("Введите сумму: ");
+                    Console.WriteLine("Введите сумму: (новая ставка должна превышать последнюю ставку минимум на 5%)");
                     decimal sum;
                     if (!decimal.TryParse(Console.ReadLine(), out sum))
                     {
@@ -193,6 +244,7 @@ namespace ElectronicAuction.Classes.Account
                         return; // или какая-то другая логика обработки ошибки
                     }
                     _auctionService.PlaceBid(_user.UserId, auctionId, sum);
+                    AccountMenu();
                     break;
                 case 0:
                     AccountMenu();
@@ -208,6 +260,7 @@ namespace ElectronicAuction.Classes.Account
             {
                 Console.WriteLine(auctionInfo.ToString());
             }
+            AccountMenu();
         }
 
         public void PrintInfoAboutAuction()
@@ -225,10 +278,15 @@ namespace ElectronicAuction.Classes.Account
             {
                 case 1:
                     Console.WriteLine("Введите номер аукциона: ");
-                    int number = Console.Read();// Считывание информации с клавиатуры
-                                                    // Проверка не введена ли пустая строка
+                    int number;
+                    if (!int.TryParse(Console.ReadLine(), out number)) // Считывание информации с клавиатуры
+                    {
+                        Console.WriteLine("Ошибка ввода.");
+                        return; // или какая-то другая логика обработки ошибки
+                    };
                     AuctionInfo info = _auctionService.InfoAboutAuction(number);
                     Console.WriteLine(info.ToString());
+                    AccountMenu();
                     break;
                 case 0:
                     AccountMenu();

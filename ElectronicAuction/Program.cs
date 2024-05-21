@@ -9,11 +9,12 @@ namespace ElectronicAuction
 {
     internal class Program
     {
-        // string connectionString = "Data Source= LAPTOP-B4VML6MR\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True";
-        
         static void Main(string[] args)
         {
-            ConsolePersonalAccount account = AccountCreator.CreateConsolePersonalAccount("Data Source=LAPTOP-B4VML6MR\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True"); //строка подключения к БД
+            //строка подключения к БД
+            string connectionString = 
+                "Data Source=LAPTOP-B4VML6MR\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;MultipleActiveResultSets=True";
+            ConsolePersonalAccount account = AccountCreator.CreateConsolePersonalAccount(connectionString);
             account.InitializateAccount();//начало работы аккаунта
         }
     }

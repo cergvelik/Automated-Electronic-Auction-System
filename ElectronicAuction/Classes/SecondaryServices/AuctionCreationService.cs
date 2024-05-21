@@ -37,11 +37,11 @@ namespace ElectronicAuction.Classes.SecondaryServices
         {
             IUser? _user = _userRepository.GetUser(userId); //достаем пользователя
             var _auction = AuctionCreating.CreateAuctionWithBid(things, _user); //создаем объект аукциона
-            _auctionRepository.AddAuctionWithBid(_auction); // добавление аукциона в базу данных
-            _bidRepository.AddBid(_auction.Bids[0], _auction.AuctionId); // добавление ставки
+            int _auctionId = _auctionRepository.AddAuctionWithBid(_auction); // добавление аукциона в базу данных
+            _bidRepository.AddBid(_auction.Bids[0], _auctionId); // добавление ставки
             foreach (var thing in things)
             {
-                _thingRepository.AddThing(thing, _auction.AuctionId); // добавление каждой вещи в БД
+                _thingRepository.AddThing(thing, _auctionId); // добавление каждой вещи в БД
             }
         }
     }
