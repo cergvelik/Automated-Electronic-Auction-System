@@ -13,7 +13,7 @@ namespace ElectronicAuction
         
         static void Main(string[] args)
         {
-            ConsolePersonalAccount account = AccountCreator.CreateConsolePersonalAccount("Data Source=LAPTOP-B4VML6MR\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True"); //строка подключения к БД
+            ConsolePersonalAccount account = AccountCreator.CreateConsolePersonalAccount("Data Source=WIN-4MKOEQCP9DK\\SQLEXPRESS;Initial Catalog=test2;Integrated Security=True"); //строка подключения к БД
             account.InitializateAccount();//начало работы аккаунта
         }
     }

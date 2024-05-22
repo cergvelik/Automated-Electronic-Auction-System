@@ -59,6 +59,14 @@ namespace ElectronicAuction.Classes.Account
 
             AccountMenu();
         }
+        public void AccountLogin(string email,string password)
+        {
+            _user = _userService.LoginUser(email, password); // логин
+            Console.WriteLine($"Добро пожаловать, {_user.Name}!");
+            //string Hash = PasswordEncrypt.Encrypt(password);
+
+            AccountMenu();
+        }
 
         public void AccountRegistration()
         {
