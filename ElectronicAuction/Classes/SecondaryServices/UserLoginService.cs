@@ -16,7 +16,7 @@ namespace ElectronicAuction.Classes.SecondaryServices
 
         public IUser LoginUser(string email, string password)
         {
-            return _userRepository.LoginUser(email, password);
+            return _userRepository.GetUser(email, password);
         }
     }
 }

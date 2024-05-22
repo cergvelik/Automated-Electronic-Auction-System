@@ -28,17 +28,13 @@ namespace ElectronicAuction.Classes.RepositoryClasses.Tests
             User user = new User("йцу", "йцуйцуй@mail.ru", "****");
             List<IThing> things = new List<IThing>(); // заполним ка наш лист
             Thing thing = new Thing("plate", "part of platemail", 100);
+            int expected = thing.ThingId;
 
             things.Add(thing);
             var Auction = AuctionCreating.CreateAuctionWithBid(things, user); //создаем объект аукциона
-            var writer = new StringWriter();//это для проверки
-            Console.SetOut(writer);
-
             thingRepositoryInSql.AddThing(thing, Auction.AuctionId);
-            string output = writer.GetStringBuilder().ToString();
 
-            StringAssert.Contains(output, "Вещь успешно добавлена.", "Вещь не может быть добавлена в базу данных");
-            Debug.WriteLine(output);
+            Assert.Fail();
         }
 
         [TestMethod()]

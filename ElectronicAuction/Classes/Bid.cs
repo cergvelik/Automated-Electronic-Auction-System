@@ -16,5 +16,10 @@ namespace ElectronicAuction.Classes
             UserId = userId; 
             Amount = amount; 
         }
+        public Bid(int id, int userId, decimal amount) { 
+            BidId = id; 
+            UserId = userId; 
+            Amount = amount; 
+        }
     }
 }

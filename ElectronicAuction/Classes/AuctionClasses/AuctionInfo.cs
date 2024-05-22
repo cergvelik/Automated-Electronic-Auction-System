@@ -7,14 +7,9 @@ namespace ElectronicAuction.Classes.AuctionClasses
     {
         private string _info { get; set; }
 
-        public AuctionInfo()
+        public AuctionInfo(string info)
         {
-            _info = string.Empty;
-        }
-
-        public void GenerateReport(IAuctionReport reportGenerator, IAuctionWithBid auction)
-        {
-            _info = reportGenerator.GenerateReport(auction);
+            _info = info;
         }
 
         public override string ToString()

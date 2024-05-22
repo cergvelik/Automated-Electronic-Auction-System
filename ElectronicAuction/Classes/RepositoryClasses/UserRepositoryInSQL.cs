@@ -6,11 +6,9 @@ using System.Data.SqlClient;
 
 namespace ElectronicAuction.Classes.RepositoryClasses
 {
-    public class UserRepositoryInSQL:IUserRepository 
+    public class UserRepositoryInSQL: RepositoryInSQL, IUserRepository 
     {
-        private readonly string _connectionString;
-
-        public UserRepositoryInSQL(string connection) { _connectionString = connection; } //конструктор класса
+        public UserRepositoryInSQL(string connectionString) : base(connectionString) { } //конструктор класса
 
         public IUser GetUser(int id) {
             IUser user = null;
@@ -48,7 +46,38 @@ namespace ElectronicAuction.Classes.RepositoryClasses
             return user;
         } //получение пользователя по его id
 
-        public IUser GetUser(string email, string password) { return null; } //получение пользователя по его email и паролю
+        public IUser GetUser(string email, string password)
+        {
+            string query = "SELECT Id, Name FROM Users WHERE Email = @Email AND Password = @Password";
+
+            IUser user = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@Password", password);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // если пользователь с такими почтой и паролем найден
+                        if (reader.Read())
+                        {
+                            int userId = reader.GetInt32(0); // Преобразование Id в int
+                            user = new User(userId, reader["Name"].ToString(), email, password);
+                        }
+                        else
+                        {
+                            return null;
+                        }
+                    }
+                }
+            }
+            return user;
+        } //получение пользователя по его email и паролю - т.е. то же самое что функция логина
 
         public void AddUser(IUser user) {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -80,40 +109,6 @@ namespace ElectronicAuction.Classes.RepositoryClasses
             }
 
         } //добавление пользователя в базу
-        public IUser LoginUser(string email, string password) {
-            string query = "SELECT Id, Name FROM Users WHERE Email = @Email AND Password = @Password";
-
-            IUser user = null;
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@Email", email);
-                    command.Parameters.AddWithValue("@Password", password);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        // если пользователь с такими почтой и паролем найден
-                        if (reader.Read())
-                        {
-                            int userId = reader.GetInt32(0); // Преобразование Id в int
-                            user = new User(userId, reader["Name"].ToString(), email, password);
-                            Console.WriteLine("Вход успешно выполнен.");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Вход не выполнен.");
-                        }
-                    }
-                }
-            }
-
-            return user;
-
-        } //логин
 
         public List<IUser> GetAllUsers() { return null; }
     }

@@ -6,11 +6,9 @@ using System.Security.Cryptography;
 
 namespace ElectronicAuction.Classes.RepositoryClasses
 {
-    public class ThingRepositoryInSQL:IThingRepository
+    public class ThingRepositoryInSQL: RepositoryInSQL, IThingRepository
     {
-        private readonly string _connectionString;
-
-        public ThingRepositoryInSQL(string connection) { _connectionString = connection; } //конструктор класса
+        public ThingRepositoryInSQL(string connectionString) : base(connectionString) { } //конструктор класса
 
         public IThing GetThing(int ThingId) { return null; }
 
@@ -32,7 +30,6 @@ namespace ElectronicAuction.Classes.RepositoryClasses
                     {
                         // Выполнение команды (вставка пользователя в базу данных)
                         command.ExecuteNonQuery();
-                        Console.WriteLine($"Вещь успешно добавлена.");
                     }
                     catch (SqlException ex)
                     {

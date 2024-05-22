@@ -20,10 +20,11 @@ namespace ElectronicAuction.Classes.Tests
         {
             User user = new User("йцу", "йцуйцуй@mail.ru", "****");
             List<IThing> things = new List<IThing>();
-            ReportGenerator report = new();
+            Thing thing = new Thing("plate", "part of platemail", 100);
+            things.Add(thing);
 
             var auction = AuctionCreating.CreateAuctionWithBid(things, user);
-            string info=report.GenerateReport(auction);
+            string info = ReportGenerator.GenerateReport(auction);
 
             Debug.WriteLine(info);//string.empty
             Assert.IsNotNull(info, "метод GenerateReport ничего не возвращает");

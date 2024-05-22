@@ -14,5 +14,7 @@ namespace ElectronicAuction.Interfaces.AuctionInterfaces
         DateTime EndDate { get; }
         List<IThing> Things { get; }
         IUser AuctionCreator { get; }
+
+        public bool CheckAuctionStatus();
     }
 }

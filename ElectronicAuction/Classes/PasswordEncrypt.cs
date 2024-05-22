@@ -9,10 +9,10 @@ namespace ElectronicAuction.Classes
         {
             byte[] messageBytes = Encoding.UTF8.GetBytes(password);
 
-            //Create the hash value from the array of bytes.
+            // Создаем хэш-значение из массива байтов.
             byte[] hashValue = SHA256.HashData(messageBytes);
 
-            //Display the hash value to the console.
+            // Выводим хэш-значение на консоль.
             string EncrPassword = Convert.ToHexString(hashValue);
 
             return EncrPassword;

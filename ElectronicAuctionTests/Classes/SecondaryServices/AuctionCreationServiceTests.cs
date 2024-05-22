@@ -61,6 +61,7 @@ namespace ElectronicAuction.Classes.SecondaryServices.Tests
             auctionCreationService1.CreateAuctionWithBid(_user.UserId, things);
             string output = writer.GetStringBuilder().ToString();
 
+            //таких сообщений больше нету
             StringAssert.Contains(output, "Аукцион успешно создан", "Сервис создания аукциона не может создать аукцион");
             StringAssert.Contains(output, "Ставка успешно добавлена", "Сервис создания аукциона не может добавитть первую ставку");
             Debug.WriteLine(output);

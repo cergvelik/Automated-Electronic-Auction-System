@@ -17,5 +17,13 @@ namespace ElectronicAuction.Classes
             Description = description;
             StartPrice = startPrice;
         }
+
+        public Thing(int thingId, string title)
+        {
+            ThingId = thingId;
+            Title = title;
+            Description = "";
+            StartPrice = 0;
+        } // конструктор из AuctionRepository
     }
 }

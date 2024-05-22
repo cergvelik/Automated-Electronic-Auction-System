@@ -31,6 +31,11 @@ namespace ElectronicAuction.Classes.AuctionClasses
         protected bool _isAuctionClosed { get { if (DateTime.Now >= EndDate) return true; else return false; } }/*если сейчас время больше чем EndDate
                                                                                                                  * то аукцион завершен. Преобразовал 
                                                                                                                  * метод в свойство, потому-что так удобнее*/
+        public bool CheckAuctionStatus()
+        {
+            if (_isAuctionClosed) return true;
+            else return false;
+        }
 
     }
 }
