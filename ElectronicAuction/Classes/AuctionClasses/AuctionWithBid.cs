@@ -1,4 +1,4 @@
-﻿using ElectronicAuction.Interfaces;
+using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.AuctionInterfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 using ElectronicAuction.Classes.UserClasses;
@@ -40,16 +40,18 @@ namespace ElectronicAuction.Classes.AuctionClasses
             return bid.Amount > PossibleBid;//если ставка больше предволагаемой ставки, то её можно размещать т.е. возвращаем true
         }
         
-        public void AddBid(IBid bid)
+        public bool AddBid(IBid bid)
         {
-            if (!_isBidValid(bid) | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
+            bool valid = _isBidValid(bid);
+            if (!valid | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
             {
                 //ошибка
-                return;
+                return false;
             } 
             else
             {
                 Bids.Add(bid);//иначе добавить ставку в аукцион
+                return true;
             }
         }
     }
