@@ -39,11 +39,20 @@ namespace ElectronicAuction.Classes.AuctionClasses.Tests
 
             var awb = AuctionCreating.CreateAuctionWithBid(things, user);
 
-            Bid bid2 = new Bid(user.UserId, 0);
+            Bid bid2 = new Bid(user.UserId, 2);
+            Bid bid3 = new Bid(user.UserId, 1);
 
             awb.AddBid(bid2);
+            awb.AddBid(bid3);
+            awb.AddBid(bid3);
+            awb.AddBid(bid3);
 
-            Assert.IsTrue(awb.Bids.Count == 1, "Добавленная ставка не больше предыдущей! Так не должно быть!");
+            Assert.IsTrue(awb.Bids.Count == 2, "Добавленная ставка не больше предыдущей! Так не должно быть");
+
+            foreach (var bid in awb.Bids)
+            {
+                Debug.WriteLine("ставка: "+bid.BidId+" "+bid.Amount);
+            }
         }
         //еще нужно проверить свойство метода auction is closed, но для этого тоже нужен Moq, который все поломает, как нибудь потом
     }

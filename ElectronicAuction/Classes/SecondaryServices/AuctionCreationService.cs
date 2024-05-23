@@ -32,8 +32,8 @@ namespace ElectronicAuction.Classes.SecondaryServices
             _thingRepository = thingRepository;
             _userRepository = userRepository;
         }
-
-        public void CreateAuctionWithBid(int userId, List<IThing> things)
+        //Изменено, по умолчанию void
+        public AuctionWithBid CreateAuctionWithBid(int userId, List<IThing> things)
         {
             IUser? _user = _userRepository.GetUser(userId); //достаем пользователя
             var _auction = AuctionCreating.CreateAuctionWithBid(things, _user); //создаем объект аукциона
@@ -43,6 +43,8 @@ namespace ElectronicAuction.Classes.SecondaryServices
             {
                 _thingRepository.AddThing(thing, _auctionId); // добавление каждой вещи в БД
             }
+
+            return _auction;
         }
     }
 }

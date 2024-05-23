@@ -40,16 +40,27 @@ namespace ElectronicAuction.Classes.AuctionClasses
             return bid.Amount > PossibleBid;//если ставка больше предволагаемой ставки, то её можно размещать т.е. возвращаем true
         }
         
-        public void AddBid(IBid bid)
+        public bool AddBid(IBid bid)
         {
-            if (!_isBidValid(bid) | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
+            bool valid = _isBidValid(bid);
+            //bool final = (valid && _isAuctionClosed);
+            //bool final1 = (!valid && !_isAuctionClosed);
+            //bool final2 = (valid && !_isAuctionClosed);
+            //bool final3 = (!valid && _isAuctionClosed);
+            //bool final4 = (!valid | !_isAuctionClosed);
+            //bool final5 = (valid | _isAuctionClosed);
+            bool final6 = (!valid | _isAuctionClosed);
+            //bool final7 = (valid | !_isAuctionClosed);
+            if (final6) //если что-то одно не соблюдено, то ставку разместить нельзя
             {
                 //ошибка
-                return;
+                Console.WriteLine("ураааааааааааааа");
+                return false;
             } 
             else
             {
                 Bids.Add(bid);//иначе добавить ставку в аукцион
+                return true;
             }
         }
     }

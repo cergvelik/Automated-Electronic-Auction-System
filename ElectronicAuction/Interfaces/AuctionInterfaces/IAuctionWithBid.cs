@@ -8,6 +8,6 @@ namespace ElectronicAuction.Interfaces.AuctionInterfaces
         List<IBid> Bids { get; }
         decimal PossibleBid { get; }
 
-        void AddBid(IBid amount);
+        bool AddBid(IBid amount);
     }
 }
