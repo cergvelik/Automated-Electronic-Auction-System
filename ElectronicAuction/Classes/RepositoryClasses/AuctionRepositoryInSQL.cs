@@ -17,7 +17,9 @@ namespace ElectronicAuction.Classes.RepositoryClasses
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
-                string query = "INSERT INTO Auctions (CreatorId, StartTime, EndTime) VALUES (@AuctionCreator, @StartDate, @EndDate); SELECT SCOPE_IDENTITY();"; // Открываем соединение
+                string query = "INSERT INTO Auctions (CreatorId, StartTime, EndTime) " +
+                    "VALUES (@AuctionCreator, @StartDate, @EndDate); " +
+                    "SELECT SCOPE_IDENTITY();"; // Открываем соединение
                 connection.Open();
 
                 // Создаем объект команды с запросом и соединением
@@ -53,7 +55,6 @@ namespace ElectronicAuction.Classes.RepositoryClasses
                 }
             }
             return 0;
-
         } //добавление аукциона со ставкой в базу данных
 
         public void ReturnAuctionWithBid(int id, IAuctionWithBid auction)

@@ -1,4 +1,4 @@
-using ElectronicAuction.Interfaces;
+﻿using ElectronicAuction.Interfaces;
 using ElectronicAuction.Interfaces.AuctionInterfaces;
 using ElectronicAuction.Interfaces.UserInterfaces;
 using ElectronicAuction.Classes.UserClasses;
@@ -42,8 +42,7 @@ namespace ElectronicAuction.Classes.AuctionClasses
         
         public bool AddBid(IBid bid)
         {
-            bool valid = _isBidValid(bid);
-            if (!valid | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
+            if (!_isBidValid(bid) | _isAuctionClosed) //если что-то одно не соблюдено, то ставку разместить нельзя
             {
                 //ошибка
                 return false;

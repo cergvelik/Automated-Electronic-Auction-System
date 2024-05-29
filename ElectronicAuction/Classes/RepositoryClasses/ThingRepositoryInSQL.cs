@@ -10,7 +10,42 @@ namespace ElectronicAuction.Classes.RepositoryClasses
     {
         public ThingRepositoryInSQL(string connectionString) : base(connectionString) { } //конструктор класса
 
-        public IThing GetThing(int ThingId) { return null; }
+        public IThing GetThing(int ThingId)
+        {
+            IThing thing = null;
+
+            // Подготовьте SQL-запрос для получения информации о вещи по идентификатору
+            string query = "SELECT Name FROM Things WHERE Id = @Id";
+
+            // Устанавливаем соединение с SQL Server
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Открываем соединение
+                connection.Open();
+
+                // Создаём объект команды с запросом и соединением
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    // Добавляем параметр для ThingId
+                    command.Parameters.AddWithValue("@Id", ThingId);
+
+                    // Выполнение команды для получения информации о вещи
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // Проверяем, существует ли вещь с указанным идентификатором
+                        if (reader.Read())
+                        {
+                            // Получаем данные о вещи из результата SQL-запроса
+                            thing = new Thing(ThingId, reader["Name"].ToString());
+                        }
+                        // Закрываем считыватель
+                        reader.Close();
+                    }
+                }
+            }
+
+            return thing;
+        }
 
         public void AddThing(IThing thing, int auctionId) {
             using (SqlConnection connection = new SqlConnection(_connectionString))

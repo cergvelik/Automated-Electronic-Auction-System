@@ -25,7 +25,7 @@ namespace ElectronicAuction.Classes.Account
         public void InitializateAccount()
         {
             Console.WriteLine("--------Аккаунт--------\n");
-            Console.WriteLine("Чтобы вы хотели сделать? 1-Войти в существующий аккаунт, 2-Зарегистрироваться");
+            Console.WriteLine("Чтобы вы хотели сделать? 1 - Войти в существующий аккаунт, 2 - Зарегистрироваться");
             int input;
             if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
             {
@@ -47,7 +47,6 @@ namespace ElectronicAuction.Classes.Account
         public void AccountLogin()
         {
             bool loginSuccess = false; // метка успешного входа в систему
-
             do
             {
                 Console.WriteLine("--------Вход--------\n");
@@ -89,7 +88,6 @@ namespace ElectronicAuction.Classes.Account
         public void AccountRegistration()
         {
             bool registrationSuccess = false; // метка успешной регистрации
-
             do
             {
                 Console.WriteLine("--------Регистрация--------\n");
@@ -135,7 +133,7 @@ namespace ElectronicAuction.Classes.Account
         public void AccountMenu()
         {
             Console.WriteLine("--------Меню--------\n");
-            Console.WriteLine("Что бы вы хотели сделать? \n1-Создать аукцион, 2-Выставить ставку, \n3-Получить информацию о всех аукционах, 4-Получить информацию о конкретном аукционе");
+            Console.WriteLine("Что бы вы хотели сделать? \n1 - Создать аукцион, 2 - Выставить ставку, \n3 - Получить информацию о всех аукционах, 4 - Получить информацию о конкретном аукционе\n9 - Выйти из аккаунта\n0 - Завершить программу");
             int input;
             if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
             {
@@ -157,6 +155,13 @@ namespace ElectronicAuction.Classes.Account
                     break;
                 case 4:
                     PrintInfoAboutAuction();
+                    break;
+                case 9:
+                    _user = null;
+                    InitializateAccount();
+                    break;
+                case 0:
+                    // уыйти - пока что работает, прикол!
                     break;
             }
         }
@@ -216,7 +221,7 @@ namespace ElectronicAuction.Classes.Account
         public void PlaceBid()
         {
             Console.WriteLine("--------Размещение ставки--------\n");
-            Console.WriteLine("Чтобы вы хотели сделать? 1-Разместить ставку , 0-Выйти в меню");
+            Console.WriteLine("Чтобы вы хотели сделать? 1 - Разместить ставку , 0 - Выйти в меню");
             int input;
             if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
             {
@@ -266,7 +271,7 @@ namespace ElectronicAuction.Classes.Account
         public void PrintInfoAboutAuction()
         {
             Console.WriteLine("--------Информация о аукционе--------\n");
-            Console.WriteLine("Чтобы вы хотели сделать? 1-Узнать информацию о аукционе , 0-Выйти в меню");
+            Console.WriteLine("Чтобы вы хотели сделать? 1 - Узнать информацию о аукционе , 0 - Выйти в меню");
             int input;
             if (!int.TryParse(Console.ReadLine(), out input)) // Считывание информации с клавиатуры
             {

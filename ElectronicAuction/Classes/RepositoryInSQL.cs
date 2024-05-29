@@ -1,4 +1,4 @@
-﻿public abstract class RepositoryInSQL
+﻿public abstract class RepositoryInSQL // базовый класс репозитория
 {
     protected readonly string _connectionString;
 

@@ -18,10 +18,10 @@ namespace ElectronicAuction.Classes.MainServices
         public void CreateNewUser(string name, string email, string password) {
             User user = new User(name, email, password);
             _userCreateService.CreateUser(user); 
-        }        
+        } // регистрация нового пользователя
         
         public IUser LoginUser(string email, string password) {
             return _userLoginService.LoginUser(email, password); 
-        }
+        } // вход в аккаунт
     }
 }

@@ -11,9 +11,11 @@ namespace ElectronicAuction
     {
         static void Main(string[] args)
         {
+            // название приложения в окне
+            Console.Title = "Электронный аукцион";
             //строка подключения к БД
             string connectionString = 
-                "Data Source=LAPTOP-B4VML6MR\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;MultipleActiveResultSets=True";
+                "Data Source=\\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;MultipleActiveResultSets=True";
             ConsolePersonalAccount account = AccountCreator.CreateConsolePersonalAccount(connectionString);
             account.InitializateAccount();//начало работы аккаунта
         }

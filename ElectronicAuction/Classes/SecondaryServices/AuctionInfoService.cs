@@ -14,10 +14,7 @@ namespace ElectronicAuction.Classes.SecondaryServices
         public AuctionInfo GetInfoAboutAuction(int id)
         {
             IAuctionWithBid auction = _auctionRepository.GetAuctionWithBid(id);
-            if (auction == null)
-            {
-                return new AuctionInfo("Аукцион с таким ID не найден.");
-            }
+            if (auction == null) return new AuctionInfo("Аукцион с таким ID не найден.");
             AuctionInfo auctionInfo = new AuctionInfo(ReportGenerator.GenerateReport(auction));
             return auctionInfo;
         } //получение информации об аукционе
